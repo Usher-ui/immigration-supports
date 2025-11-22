@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Immigration Support Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <h1>Immigration Support Portal</h1>
+  <p style="font-size: 0.9rem; color: #eee;">Powered by Usher</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="usa.html">USA Immigration</a>
+  <a href="other.html">Other Countries</a>
+</nav>
+
+<main>
+  <h2>Welcome!</h2>
+  <p>This website helps immigrants understand how to move to the United States from any country.</p>
+
+  <h3>Select Your Country</h3>
+  <div class="country-list" id="countryList"></div>
+
+  <script>
+    loadCountries("countryList");
+  </script>
+</main>
+
+<footer>© 2025 Immigration Support Platform — Created by Usher</footer>
+</body>
+</html>
