@@ -1,32 +1,87 @@
-[
-  {"name": "Philippines", "code": "philippines", "embassy": "https://ph.usembassy.gov/"},
-  {"name": "India", "code": "india", "embassy": "https://in.usembassy.gov/"},
-  {"name": "Mexico", "code": "mexico", "embassy": "https://mx.usembassy.gov/"},
-  {"name": "China", "code": "china", "embassy": "https://china.usembassy-china.org.cn/"},
-  {"name": "Canada", "code": "canada", "embassy": "https://ca.usembassy.gov/"},
-  {"name": "Brazil", "code": "brazil", "embassy": "https://br.usembassy.gov/"},
-  {"name": "United Kingdom", "code": "uk", "embassy": "https://uk.usembassy.gov/"},
-  {"name": "Germany", "code": "germany", "embassy": "https://de.usembassy.gov/"},
-  {"name": "France", "code": "france", "embassy": "https://fr.usembassy.gov/"},
-  {"name": "Japan", "code": "japan", "embassy": "https://jp.usembassy.gov/"},
-  {"name": "South Korea", "code": "southkorea", "embassy": "https://kr.usembassy.gov/"},
-  {"name": "Australia", "code": "australia", "embassy": "https://au.usembassy.gov/"},
-  {"name": "Russia", "code": "russia", "embassy": "https://ru.usembassy.gov/"},
-  {"name": "Italy", "code": "italy", "embassy": "https://it.usembassy.gov/"},
-  {"name": "Spain", "code": "spain", "embassy": "https://es.usembassy.gov/"},
-  {"name": "Argentina", "code": "argentina", "embassy": "https://ar.usembassy.gov/"},
-  {"name": "Egypt", "code": "egypt", "embassy": "https://eg.usembassy.gov/"},
-  {"name": "Nigeria", "code": "nigeria", "embassy": "https://ng.usembassy.gov/"},
-  {"name": "South Africa", "code": "southafrica", "embassy": "https://za.usembassy.gov/"},
-  {"name": "Turkey", "code": "turkey", "embassy": "https://tr.usembassy.gov/"},
-  {"name": "Saudi Arabia", "code": "saudiarabia", "embassy": "https://sa.usembassy.gov/"},
-  {"name": "Indonesia", "code": "indonesia", "embassy": "https://id.usembassy.gov/"},
-  {"name": "Thailand", "code": "thailand", "embassy": "https://th.usembassy.gov/"},
-  {"name": "Vietnam", "code": "vietnam", "embassy": "https://vn.usembassy.gov/"},
-  {"name": "Malaysia", "code": "malaysia", "embassy": "https://my.usembassy.gov/"},
-  {"name": "Singapore", "code": "singapore", "embassy": "https://sg.usembassy.gov/"},
-  {"name": "New Zealand", "code": "newzealand", "embassy": "https://nz.usembassy.gov/"},
-  {"name": "Pakistan", "code": "pakistan", "embassy": "https://pk.usembassy.gov/"},
-  {"name": "Bangladesh", "code": "bangladesh", "embassy": "https://bd.usembassy.gov/"},
-  {"name": "Ukraine", "code": "ukraine", "embassy": "https://ua.usembassy.gov/"}
-]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Immigration Info</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #info { margin-top: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px; }
+    label { font-weight: bold; }
+    a { color: blue; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<h1>Immigration Information</h1>
+
+<label for="country">Select a country:</label>
+<select id="country">
+  <option value="">--Please choose a country--</option>
+</select>
+
+<div id="info">
+  <p>Select a country to see embassy info and what you need to know.</p>
+</div>
+
+<script>
+  // Array of countries with embassy info, link, and key immigration notes
+  const countries = [
+    {name: "United States", embassy: "US Embassy, Washington D.C.", link: "https://www.usembassy.gov/", info: "Visa required. Check ESTA for travel under 90 days."},
+    {name: "Canada", embassy: "Canadian Embassy, Ottawa", link: "https://www.canadainternational.gc.ca/", info: "Visa may be required. eTA for visa-exempt countries."},
+    {name: "United Kingdom", embassy: "UK Embassy, London", link: "https://www.gov.uk/government/world/organisations/british-embassy", info: "Visa required for most travelers. Check UK Visa and Immigration."},
+    {name: "Australia", embassy: "Australian Embassy, Canberra", link: "https://www.homeaffairs.gov.au/", info: "eVisitor or Visitor visa needed. Apply online."},
+    {name: "Germany", embassy: "German Embassy, Berlin", link: "https://www.germany.info/us-en", info: "Schengen visa for non-EU travelers."},
+    {name: "France", embassy: "French Embassy, Paris", link: "https://franceintheus.org/", info: "Schengen visa for most non-EU visitors."},
+    {name: "Italy", embassy: "Italian Embassy, Rome", link: "https://ambwashingtondc.esteri.it/ambasciata_washington/en/", info: "Schengen visa may be required."},
+    {name: "Spain", embassy: "Spanish Embassy, Madrid", link: "http://www.exteriores.gob.es/Embajadas/WASHINGTON/en/Pages/inicio.aspx", info: "Schengen visa requirements apply."},
+    {name: "Mexico", embassy: "Mexican Embassy, Mexico City", link: "https://embamex.sre.gob.mx/washington/", info: "Tourist visa for some nationalities. Check requirements."},
+    {name: "Brazil", embassy: "Brazilian Embassy, Brasília", link: "http://washington.itamaraty.gov.br/en-us/", info: "Visa required for some nationalities; check before traveling."},
+    {name: "Argentina", embassy: "Argentine Embassy, Buenos Aires", link: "https://eeeuu.cancilleria.gob.ar/en", info: "Tourist visa required for some visitors."},
+    {name: "Japan", embassy: "Japanese Embassy, Tokyo", link: "https://www.us.emb-japan.go.jp/itprtop_en/index.html", info: "Visa exemptions for many countries. Check length of stay."},
+    {name: "China", embassy: "Chinese Embassy, Beijing", link: "http://www.china-embassy.org/eng/", info: "Visa required for most travelers. Apply in advance."},
+    {name: "India", embassy: "Indian Embassy, New Delhi", link: "https://www.indianembassyusa.gov.in/", info: "eVisa or regular visa required."},
+    {name: "South Korea", embassy: "Korean Embassy, Seoul", link: "http://overseas.mofa.go.kr/us-en/index.do", info: "Visa exemptions for some countries. Check K-ETA."},
+    {name: "Russia", embassy: "Russian Embassy, Moscow", link: "https://washington.mid.ru/en/", info: "Visa required. Embassy approval needed."},
+    {name: "South Africa", embassy: "South African Embassy, Pretoria", link: "https://www.southafrica-usa.net/", info: "Visa required for some visitors."},
+    {name: "Egypt", embassy: "Egyptian Embassy, Cairo", link: "http://www.egyptembassy.net/", info: "Tourist visa available online for many countries."},
+    {name: "Nigeria", embassy: "Nigerian Embassy, Abuja", link: "https://www.nigeriaembassyusa.org/", info: "Visa required; check embassy website."},
+    {name: "Kenya", embassy: "Kenyan Embassy, Nairobi", link: "https://www.kenyaembassy.com/", info: "eVisa or visa on arrival for some nationalities."},
+    {name: "Sweden", embassy: "Swedish Embassy, Stockholm", link: "https://www.swedenabroad.se/en/", info: "Schengen visa may be required."},
+    {name: "Norway", embassy: "Norwegian Embassy, Oslo", link: "https://www.norway.no/en/usa/", info: "Schengen visa requirements apply."},
+    {name: "Finland", embassy: "Finnish Embassy, Helsinki", link: "https://finlandabroad.fi/web/usa", info: "Schengen visa needed for non-EU citizens."},
+    {name: "Netherlands", embassy: "Dutch Embassy, The Hague", link: "https://www.netherlandsworldwide.nl/", info: "Schengen visa rules apply."},
+    {name: "Switzerland", embassy: "Swiss Embassy, Bern", link: "https://www.eda.admin.ch/countries/usa/en/home.html", info: "Schengen visa may be needed."},
+    {name: "New Zealand", embassy: "New Zealand Embassy, Wellington", link: "https://www.mfat.govt.nz/en/countries-and-regions/americas/united-states-of-america/", info: "NZeTA required for visa-waiver countries."},
+    {name: "Singapore", embassy: "Singapore Embassy, Singapore", link: "https://www.mfa.gov.sg/Overseas-Mission/Washington", info: "Visa-free entry for many countries."},
+    {name: "United Arab Emirates", embassy: "UAE Embassy, Abu Dhabi", link: "https://www.uae-embassy.org/", info: "Visa on arrival for many nationalities."},
+    {name: "Saudi Arabia", embassy: "Saudi Embassy, Riyadh", link: "https://www.saudiembassy.net/", info: "eVisa required for tourism."},
+    {name: "Turkey", embassy: "Turkish Embassy, Ankara", link: "https://washington.emb.mfa.gov.tr/Mission", info: "eVisa or visa on arrival depending on nationality."}
+  ];
+
+  // Populate dropdown
+  const select = document.getElementById('country');
+  countries.forEach(c => {
+    const option = document.createElement('option');
+    option.value = c.name;
+    option.textContent = c.name;
+    select.appendChild(option);
+  });
+
+  // Show info when country is selected
+  select.addEventListener('change', () => {
+    const selected = countries.find(c => c.name === select.value);
+    const infoDiv = document.getElementById('info');
+    if (selected) {
+      infoDiv.innerHTML = `<h2>${selected.name}</h2>
+                           <p><strong>Embassy:</strong> <a href="${selected.link}" target="_blank">${selected.embassy}</a></p>
+                           <p><strong>Important Info:</strong> ${selected.info}</p>`;
+    } else {
+      infoDiv.innerHTML = "<p>Select a country to see embassy info and what you need to know.</p>";
+    }
+  });
+</script>
+
+</body>
+</html>
+
